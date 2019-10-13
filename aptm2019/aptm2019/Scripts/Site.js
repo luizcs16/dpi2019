@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-
     $('#dismiss, .overlay').on('click', function () {
         // hide sidebar
         $('#sidebar').removeClass('active');

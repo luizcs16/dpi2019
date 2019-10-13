@@ -110,3 +110,13 @@ var utils = {
         ], 'EPSG:3857', 'EPSG:4326');
     }
 };
+
+
+
+$(document).ready(function () {
+
+    $('#accordionAPTM').on('show.bs.collapse', function () {;
+        $(this).find('.collapse.in').collapse('hide');
+    })
+
+});
