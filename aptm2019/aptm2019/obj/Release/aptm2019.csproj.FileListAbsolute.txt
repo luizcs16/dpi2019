@@ -79,3 +79,4 @@ C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\aptm2019\bin\es\System.Web.We
 C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\aptm2019\obj\Release\aptm2019.csproj.CopyComplete
 C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\aptm2019\obj\Release\aptm2019.dll
 C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\aptm2019\obj\Release\aptm2019.pdb
+C:\Users\Luis\Source\Repos\GitHub\dpi2019\aptm2019\aptm2019\obj\Release\aptm2019.csprojAssemblyReference.cache
