@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Css = new string[] {
+        "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.css",
+        "/StylesSheetCSS/Home.css",
+
+    };
+    ViewBag.Js = new string[] {
+        "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.js",
+        "https://cdn.rawgit.com/stefanpenner/es6-promise/master/dist/es6-promise.min.js",
+        "https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch",
+        "/ScriptsJS/Home.js"
+    };
+}
+
+<div id="map"></div>
+<div id="msg">Click to add a point.</div>

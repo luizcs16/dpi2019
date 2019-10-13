@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\ScriptsJS\Home.js" />
+    <None Include="wwwroot\StylesSheetCSS\Home.css" />
+  </ItemGroup>
+
+</Project>
