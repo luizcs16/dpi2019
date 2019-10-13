@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aptm2019", "aptm2019\aptm2019.csproj", "{DDA1ED5D-D38C-461B-96F9-1D1663A29A3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptm2019", "Aptm2019\Aptm2019.csproj", "{DDA1ED5D-D38C-461B-96F9-1D1663A29A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptm2019.BusinessLogicLayer", "Aptm2019.BusinessLogicLayer\Aptm2019.BusinessLogicLayer.csproj", "{FE0446D1-F3C8-4991-8BE3-D532B973C10B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DDA1ED5D-D38C-461B-96F9-1D1663A29A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDA1ED5D-D38C-461B-96F9-1D1663A29A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDA1ED5D-D38C-461B-96F9-1D1663A29A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0446D1-F3C8-4991-8BE3-D532B973C10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0446D1-F3C8-4991-8BE3-D532B973C10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0446D1-F3C8-4991-8BE3-D532B973C10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0446D1-F3C8-4991-8BE3-D532B973C10B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,4 @@
 # Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
 ################################################################################
 
-/Tesis20192/.vs/Tesis20192
-/Tesis20192/Tesis20192/obj
-/aptm2019/.vs/aptm2019/v16/Server/sqlite3
+/Aptm2019/.vs/Aptm2019/v16/Server/sqlite3
