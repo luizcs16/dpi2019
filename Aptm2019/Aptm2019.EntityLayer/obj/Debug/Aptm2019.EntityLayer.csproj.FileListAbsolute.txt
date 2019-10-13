@@ -1,0 +1,4 @@
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.EntityLayer\bin\Debug\Aptm2019.EntityLayer.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.EntityLayer\bin\Debug\Aptm2019.EntityLayer.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.EntityLayer\obj\Debug\Aptm2019.EntityLayer.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.EntityLayer\obj\Debug\Aptm2019.EntityLayer.pdb
