@@ -120,26 +120,169 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\ValidarSeguridadAttribute.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Seguridad\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Css\Home.css" />
+    <Content Include="App_Css\_Site.css" />
+    <Content Include="App_JS\Empleado.js" />
+    <Content Include="App_JS\Home.js" />
+    <Content Include="App_JS\Seguridad.js" />
+    <Content Include="App_JS\_Site.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\CSS\Home.css" />
+    <Content Include="Content\jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
+    <Content Include="Content\jtable\extensions\jquery.jtable.aspnetpagemethods.min.js" />
+    <Content Include="Content\jtable\external\json2.js" />
+    <Content Include="Content\jtable\external\json2.min.js" />
+    <Content Include="Content\jtable\jquery.jtable.js" />
+    <Content Include="Content\jtable\jquery.jtable.min.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.bd.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.ca.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.cz.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.de.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.es.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.fa.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.fr.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.hr.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.hu.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.id.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.it.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.lt.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.nl-NL.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.no.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.pl.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.pt-BR.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.pt-PT.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.ro.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.ru.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.se.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.tr.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.vi.js" />
+    <Content Include="Content\jtable\localization\jquery.jtable.zh-CN.js" />
+    <Content Include="Content\jtable\themes\basic\close.png" />
+    <Content Include="Content\jtable\themes\basic\column-asc.png" />
+    <Content Include="Content\jtable\themes\basic\column-desc.png" />
+    <Content Include="Content\jtable\themes\basic\column-sortable.png" />
+    <Content Include="Content\jtable\themes\basic\delete.png" />
+    <Content Include="Content\jtable\themes\basic\edit.png" />
+    <Content Include="Content\jtable\themes\basic\jtable_basic.css" />
+    <Content Include="Content\jtable\themes\basic\jtable_basic.min.css" />
+    <Content Include="Content\jtable\themes\jqueryui\add.png" />
+    <Content Include="Content\jtable\themes\jqueryui\bg-thead.png" />
+    <Content Include="Content\jtable\themes\jqueryui\close.png" />
+    <Content Include="Content\jtable\themes\jqueryui\column-asc.png" />
+    <Content Include="Content\jtable\themes\jqueryui\column-desc.png" />
+    <Content Include="Content\jtable\themes\jqueryui\column-sortable.png" />
+    <Content Include="Content\jtable\themes\jqueryui\delete.png" />
+    <Content Include="Content\jtable\themes\jqueryui\edit.png" />
+    <Content Include="Content\jtable\themes\jqueryui\jtable_jqueryui.css" />
+    <Content Include="Content\jtable\themes\jqueryui\jtable_jqueryui.min.css" />
+    <Content Include="Content\jtable\themes\jqueryui\loading.gif" />
+    <Content Include="Content\jtable\themes\lightcolor\add.png" />
+    <Content Include="Content\jtable\themes\lightcolor\bg-thead.png" />
+    <Content Include="Content\jtable\themes\lightcolor\blue\jtable.css" />
+    <Content Include="Content\jtable\themes\lightcolor\blue\jtable.min.css" />
+    <Content Include="Content\jtable\themes\lightcolor\blue\loading.gif" />
+    <Content Include="Content\jtable\themes\lightcolor\close.png" />
+    <Content Include="Content\jtable\themes\lightcolor\column-asc.png" />
+    <Content Include="Content\jtable\themes\lightcolor\column-desc.png" />
+    <Content Include="Content\jtable\themes\lightcolor\column-sortable.png" />
+    <Content Include="Content\jtable\themes\lightcolor\delete.png" />
+    <Content Include="Content\jtable\themes\lightcolor\edit.png" />
+    <Content Include="Content\jtable\themes\lightcolor\gray\jtable.css" />
+    <Content Include="Content\jtable\themes\lightcolor\gray\jtable.min.css" />
+    <Content Include="Content\jtable\themes\lightcolor\gray\loading.gif" />
+    <Content Include="Content\jtable\themes\lightcolor\green\jtable.css" />
+    <Content Include="Content\jtable\themes\lightcolor\green\jtable.min.css" />
+    <Content Include="Content\jtable\themes\lightcolor\green\loading.gif" />
+    <Content Include="Content\jtable\themes\lightcolor\orange\jtable.css" />
+    <Content Include="Content\jtable\themes\lightcolor\orange\jtable.min.css" />
+    <Content Include="Content\jtable\themes\lightcolor\orange\loading.gif" />
+    <Content Include="Content\jtable\themes\lightcolor\red\jtable.css" />
+    <Content Include="Content\jtable\themes\lightcolor\red\jtable.min.css" />
+    <Content Include="Content\jtable\themes\lightcolor\red\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\add.png" />
+    <Content Include="Content\jtable\themes\metro\blue\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\blue\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\blue\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\brown\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\brown\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\brown\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\close.png" />
+    <Content Include="Content\jtable\themes\metro\column-asc.png" />
+    <Content Include="Content\jtable\themes\metro\column-desc.png" />
+    <Content Include="Content\jtable\themes\metro\column-sortable.png" />
+    <Content Include="Content\jtable\themes\metro\crimson\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\crimson\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\crimson\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\darkgray\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\darkgray\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\darkgray\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\darkorange\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\darkorange\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\darkorange\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\delete.png" />
+    <Content Include="Content\jtable\themes\metro\edit.png" />
+    <Content Include="Content\jtable\themes\metro\green\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\green\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\green\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\jtable_metro_base.css" />
+    <Content Include="Content\jtable\themes\metro\jtable_metro_base.min.css" />
+    <Content Include="Content\jtable\themes\metro\lightgray\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\lightgray\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\lightgray\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\pink\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\pink\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\pink\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\purple\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\purple\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\purple\loading.gif" />
+    <Content Include="Content\jtable\themes\metro\red\jtable.css" />
+    <Content Include="Content\jtable\themes\metro\red\jtable.min.css" />
+    <Content Include="Content\jtable\themes\metro\red\loading.gif" />
+    <Content Include="Content\sweetalert\dist\sweetalert.css" />
+    <Content Include="Content\sweetalert\dist\sweetalert.min.js" />
+    <Content Include="Content\sweetalert\dist\sweetalert2.min.css" />
+    <Content Include="Content\sweetalert\dist\sweetalert2.min.js" />
+    <Content Include="Content\sweetalert\dist\_sweetalert.min.js" />
     <Content Include="Images\carga.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Images\marker.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\jtable\themes\metro\jtable_metro_base.less" />
+    <Content Include="Content\jtable\themes\basic\jtable_basic.less" />
+    <Content Include="Content\jtable\themes\jqueryui\jtable_jqueryui.less" />
+    <Content Include="Content\jtable\themes\jtable_theme_base.less" />
+    <Content Include="Content\jtable\themes\lightcolor\blue\jtable.less" />
+    <Content Include="Content\jtable\themes\lightcolor\gray\jtable.less" />
+    <Content Include="Content\jtable\themes\lightcolor\green\jtable.less" />
+    <Content Include="Content\jtable\themes\lightcolor\jtable_lightcolor_base.less" />
+    <Content Include="Content\jtable\themes\lightcolor\orange\jtable.less" />
+    <Content Include="Content\jtable\themes\lightcolor\red\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\blue\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\brown\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\crimson\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\darkgray\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\darkorange\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\green\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\lightgray\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\pink\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\purple\jtable.less" />
+    <Content Include="Content\jtable\themes\metro\red\jtable.less" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -152,9 +295,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\JS\Home.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -169,10 +310,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Seguridad\Login.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Perfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -189,12 +332,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aptm2019.BusinessLogicLayer\Aptm2019.BusinessLogicLayer.csproj">
-      <Project>{FE0446D1-F3C8-4991-8BE3-D532B973C10B}</Project>
+      <Project>{fe0446d1-f3c8-4991-8be3-d532b973c10b}</Project>
       <Name>Aptm2019.BusinessLogicLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Aptm2019.EntityLayer\Aptm2019.EntityLayer.csproj">
-      <Project>{DD58E861-5BCE-4F06-88DC-D5D13238D837}</Project>
+      <Project>{dd58e861-5bce-4f06-88dc-d5d13238d837}</Project>
       <Name>Aptm2019.EntityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aptm2019.Security\Aptm2019.Security.csproj">
+      <Project>{CBC4A236-4FAD-4B80-9691-CD424E29C63C}</Project>
+      <Name>Aptm2019.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -44,14 +44,6 @@ namespace Aptm2019.BusinessLogicLayer
 		/// <summary>
 		/// Deletes a record from the MEmpleado table by a foreign key.
 		/// </summary>
-		public void DeleteAllByMEMP_nIdMUsuario(int MEMP_nIdMUsuario)
-		{
-			 new DAL_MEmpleado().DeleteAllByMEMP_nIdMUsuario(MEMP_nIdMUsuario);
-		}
-
-		/// <summary>
-		/// Deletes a record from the MEmpleado table by a foreign key.
-		/// </summary>
 		public void DeleteAllByMEMP_nUsrReg(int MEMP_nUsrReg)
 		{
 			 new DAL_MEmpleado().DeleteAllByMEMP_nUsrReg(MEMP_nUsrReg);
@@ -87,14 +79,6 @@ namespace Aptm2019.BusinessLogicLayer
 		public List<ENT_MEmpleado> SelectAllByMEMP_nTipoDoc(int MEMP_nTipoDoc)
 		{
 			return new DAL_MEmpleado().SelectAllByMEMP_nTipoDoc(MEMP_nTipoDoc);
-		}
-
-		/// <summary>
-		/// Selecciona los registros de la tabla MEmpleado por un foreign key.
-		/// </summary>
-		public List<ENT_MEmpleado> SelectAllByMEMP_nIdMUsuario(int MEMP_nIdMUsuario)
-		{
-			return new DAL_MEmpleado().SelectAllByMEMP_nIdMUsuario(MEMP_nIdMUsuario);
 		}
 
 		/// <summary>

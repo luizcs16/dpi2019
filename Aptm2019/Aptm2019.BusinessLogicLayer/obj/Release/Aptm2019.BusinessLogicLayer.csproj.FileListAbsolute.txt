@@ -1,0 +1,10 @@
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.BusinessLogicLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.BusinessLogicLayer.pdb
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.DataAccessLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.EntityLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.DataAccessLayer.pdb
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\bin\Release\Aptm2019.EntityLayer.pdb
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\obj\Release\Aptm2019.BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\obj\Release\Aptm2019.BusinessLogicLayer.csproj.CopyComplete
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\obj\Release\Aptm2019.BusinessLogicLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.BusinessLogicLayer\obj\Release\Aptm2019.BusinessLogicLayer.pdb

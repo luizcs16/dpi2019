@@ -1,0 +1,5 @@
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.EntityLayer\bin\Release\Aptm2019.EntityLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.EntityLayer\bin\Release\Aptm2019.EntityLayer.pdb
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.EntityLayer\obj\Release\Aptm2019.EntityLayer.csprojAssemblyReference.cache
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.EntityLayer\obj\Release\Aptm2019.EntityLayer.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.EntityLayer\obj\Release\Aptm2019.EntityLayer.pdb

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<div id="formLogin" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align:center">
+                    <img src="@Url.Content("~/Images/camion-cajas.png")"/>
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel with-nav-tabs panel-default">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">INICIAR SESIÓN</li>
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" id="loginUsername" placeholder="Ingrese el nombre de Usuario">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <input type="password" class="form-control" id="passwordUsuario" placeholder="Ingrese su Clave">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-primary btn-block btn-lg" id="btnLogin" autofocus>Ingresar</button>
+                                    </div>
+                                    <div id="divErrorLogin">
+                                        <span class="mensaje"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">Sistema APTM
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

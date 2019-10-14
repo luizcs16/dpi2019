@@ -1,0 +1,4 @@
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.Security\bin\Release\Aptm2019.Security.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.Security\bin\Release\Aptm2019.Security.pdb
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.Security\obj\Release\Aptm2019.Security.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.Security\obj\Release\Aptm2019.Security.pdb
