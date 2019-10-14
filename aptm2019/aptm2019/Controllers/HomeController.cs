@@ -14,18 +14,16 @@ namespace aptm2019.Controllers
         {
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            var dd = new dynamic[] { };
             return View();
         }
     }

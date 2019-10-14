@@ -1,4 +1,14 @@
-﻿$(document).ready(function () {
+﻿function showLoading(mensaje) {
+    $("#loadingModal").css({ 'display': 'block' });
+    $("#loadingModal").find('#loadingMessage').html(mensaje || 'Cargando servicios...');
+
+}
+function hideLoading() {
+    $("#loadingModal").css({ 'display': 'none' });
+    $("#loadingModal").find('#loadingMessage').html('');
+}
+
+$(document).ready(function () {
     $('#dismiss, .overlay').on('click', function () {
         // hide sidebar
         $('#sidebar').removeClass('active');

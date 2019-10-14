@@ -193,3 +193,39 @@ a.article:hover {
     padding: 0px;
     margin: 0px;
 }
+
+#loadingModal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1200;
+    background-color: rgba(0,0,10,0.5);
+    padding: 15% 40% 0% 40%;
+}
+#loadingModal div {
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 3px;
+    position: relative;
+}
+#loadingModal div #loadingMessage {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    line-height: 1.428571429;
+    cursor: wait;
+    z-index: 999;
+    position: absolute;
+    margin: 5px;
+    font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    border: 1px solid #fff;
+    padding: 5px 5px 5px 58px;
+    color: #fff;
+    background: url(../images/loading.gif) no-repeat;
+    background-color: #0b67cd;
+    background-position: 8px;
+}

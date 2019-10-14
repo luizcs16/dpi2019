@@ -61,11 +61,10 @@
     <Compile Include="Base\DataReaderHelper.cs" />
     <Compile Include="Base\SQLHelper.cs" />
     <Compile Include="Base\_DataRuntimeException.cs" />
+    <Compile Include="Derived\DAL_MUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Derived\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Aptm2019.EntityLayer\Aptm2019.EntityLayer.csproj">
       <Project>{DD58E861-5BCE-4F06-88DC-D5D13238D837}</Project>

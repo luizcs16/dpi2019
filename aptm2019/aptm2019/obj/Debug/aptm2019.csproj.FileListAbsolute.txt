@@ -168,3 +168,5 @@ C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\bin\es\System.Web.WebPag
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\obj\Debug\Aptm2019.csproj.CopyComplete
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\bin\Aptm2019.Security.dll
+C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019\bin\Aptm2019.Security.pdb

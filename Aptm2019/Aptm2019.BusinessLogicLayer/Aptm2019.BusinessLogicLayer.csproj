@@ -56,11 +56,10 @@
     <Compile Include="Base\BLL_MServicioReparto.cs" />
     <Compile Include="Base\BLL_MUsuario.cs" />
     <Compile Include="Base\BLL_MVehiculo.cs" />
+    <Compile Include="Derived\BLL_MUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Derived\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Aptm2019.DataAccessLayer\Aptm2019.DataAccessLayer.csproj">
       <Project>{E9A2A641-8173-42BB-A354-24D80B444246}</Project>

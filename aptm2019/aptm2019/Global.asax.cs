@@ -1,3 +1,4 @@
+using Aptm2019.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace aptm2019
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            //Agregar atributo global para validad sesion
+            GlobalFilters.Filters.Add(new ValidarSeguridadAttribute());
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

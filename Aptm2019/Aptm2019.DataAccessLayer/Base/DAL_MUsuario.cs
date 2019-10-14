@@ -7,7 +7,7 @@ using Aptm2019.EntityLayer;
 
 namespace Aptm2019.DataAccessLayer
 {
-	public class DAL_MUsuario : DAL_Execute
+	public partial class DAL_MUsuario : DAL_Execute
 	{
 		#region Methods
 

@@ -2,14 +2,14 @@
     ViewBag.Title = "Prototipo APTM";
     ViewBag.Css = new string[] {
         "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.css",
-        "/Content/CSS/Home.css",
+        "/App_Css/Home.css",
 
     };
-    ViewBag.Js = new string[] {
-        "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.js",
-        "https://cdn.rawgit.com/stefanpenner/es6-promise/master/dist/es6-promise.min.js",
-        "https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch",
-        "/Scripts/JS/Home.js"
+    ViewBag.Js = new dynamic[] {
+        new {src = "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.js" },
+        new {src ="https://cdn.rawgit.com/stefanpenner/es6-promise/master/dist/es6-promise.min.js" },
+        new {src = "https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch" },
+        new {src = "/App_JS/Home.js" }
     };
 }
 
