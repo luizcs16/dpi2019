@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     $('#EmpleadoTableContainer').jtable({
-        title: 'Student List',
+        title: 'Lista de Empleados',
         paging: true,
         sorting: true,
         defaultSorting: 'Name ASC',

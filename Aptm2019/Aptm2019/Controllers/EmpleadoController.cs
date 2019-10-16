@@ -21,17 +21,21 @@ namespace aptm2019.Controllers
             try
             {
                 //Get data from database
-                List<ENT_MEmpleado> lstEmpleado = new BLL_MEmpleado().SelectAll();
+                //List<ENT_MEmpleado> lstEmpleado = new BLL_MEmpleado().SelectAll();
 
-                lstEmpleado = jtPageSize > 0
-                       ? lstEmpleado.Skip(jtStartIndex).Take(jtPageSize).ToList() //Paging
-                       : lstEmpleado.ToList();
+                //lstEmpleado = jtPageSize > 0
+                //       ? lstEmpleado.Skip(jtStartIndex).Take(jtPageSize).ToList() //Paging
+                //       : lstEmpleado.ToList();
+                int TotalRecordCount;
+                List<ENT_MEmpleado> Records = new BLL_MEmpleado().SelectListJTable(name, null, jtStartIndex, jtPageSize, jtSorting, false, out TotalRecordCount);
+
+
                 //Return result to jTable
-                return Json(new { Result = "OK", Records = lstEmpleado, TotalRecordCount = lstEmpleado.Count });
+                return Json(new { Result = "OK", Records, TotalRecordCount });
             }
             catch (Exception ex)
             {
-                return Json(new { Result = "ERROR", Message = ex.Message });
+                return Json(new { Result = "ERROR", ex.Message });
             }
         }
 

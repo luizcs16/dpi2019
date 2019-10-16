@@ -61,6 +61,7 @@
     <Compile Include="Base\DataReaderHelper.cs" />
     <Compile Include="Base\SQLHelper.cs" />
     <Compile Include="Base\_DataRuntimeException.cs" />
+    <Compile Include="Derived\DAL_ListJTable.cs" />
     <Compile Include="Derived\DAL_MUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

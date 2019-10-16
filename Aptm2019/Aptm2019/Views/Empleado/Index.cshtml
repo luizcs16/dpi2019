@@ -5,4 +5,16 @@
         new {src = "/App_JS/Empleado.js" }
     };
 }
-<div id="EmpleadoTableContainer"></div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header badge-primary">Empleados</div>
+            <div class="card-body">
+                <p>
+                    @Html.ActionLink("Nueva Aplicación", "Create", null, new { @class = "btn btn-success" })
+                </p>
+                <div id="EmpleadoTableContainer"></div>
+            </div>
+            <div class="card-footer  badge-primary"> You have 3 More attempts left! </div>
+        </div>
+    </div>
+

@@ -45,9 +45,17 @@ namespace Aptm2019.Controllers
         }
         private static bool LoginAutenticado(LoginModel oLogin, Controller controller)
         {
-            ENT_MUsuario usr = new BLL_MUsuario().SelectByLogin(oLogin.CLoginUserName, Encryptor.EncryptTripleDES(oLogin.CLoginPassword, "dpi2019"));
+            bool lAutenticado;
+            if (ConfigurationManager.AppSettings[""] == "on")
+            {
+                ENT_MUsuario usr = new BLL_MUsuario().SelectByLogin(oLogin.CLoginUserName, Encryptor.EncryptTripleDES(oLogin.CLoginPassword, "dpi2019"));
 
-            bool lAutenticado = usr != null;
+                lAutenticado = usr != null;
+            }
+            else
+            {
+                lAutenticado = true;
+            }
             if (lAutenticado)
             {
                 controller.Session.Add("UsuarioObj", oLogin);

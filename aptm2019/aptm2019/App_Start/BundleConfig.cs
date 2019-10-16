@@ -14,17 +14,21 @@ namespace aptm2019
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/pooper").Include(
+                      "~/Scripts/popper.min.js"));
+
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información. De este modo, estará
             // para la producción, use la herramienta de compilación disponible en https://modernizr.com para seleccionar solo las pruebas que necesite.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
-
+            //Styles
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css"
+                      ));
         }
     }
 }

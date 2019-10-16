@@ -1,0 +1,5 @@
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Util\bin\Debug\Aptm2019.Util.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Util\bin\Debug\Aptm2019.Util.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Util\obj\Debug\Aptm2019.Util.csprojAssemblyReference.cache
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Util\obj\Debug\Aptm2019.Util.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Util\obj\Debug\Aptm2019.Util.pdb

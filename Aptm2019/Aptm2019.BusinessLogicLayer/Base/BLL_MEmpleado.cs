@@ -5,7 +5,7 @@ using Aptm2019.EntityLayer;
 
 namespace Aptm2019.BusinessLogicLayer
 {
-	public class BLL_MEmpleado
+	public partial class BLL_MEmpleado
 	{
 		#region Methods
 
