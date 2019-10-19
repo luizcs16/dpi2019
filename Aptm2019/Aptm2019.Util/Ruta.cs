@@ -12,15 +12,15 @@ namespace Aptm2019.Util
 {
     public class Ruta
     {
-        public static List<Nodo> MejorRuta { get; set; }
+        //public static List<Nodo> MejorRuta { get; set; }
         public static string f(double value)
         {
             return value.ToString().Replace(",",".");
         }
-        public static void GetNDirection(Nodo n1, Nodo n2)
+        public static void GetNDirection(Nodo n1, Nodo n2,bool costo = true)
         {
-            if (MejorRuta == null)
-                MejorRuta = new List<Nodo>();
+            //if (MejorRuta == null)
+            //    MejorRuta = new List<Nodo>();
             string html = string.Empty;
 
             string url = @"https://router.project-osrm.org/route/v1/driving/" + f(n1.nLong) + "," + f(n1.nLat) + ";" + f(n2.nLong) + "," + f(n2.nLat);
@@ -39,41 +39,88 @@ namespace Aptm2019.Util
 
             JArray routes = va.Value<dynamic>("routes");
             JObject va2 = routes.Children<JObject>().ToList()[0];
-            float va3 = va2.Value<dynamic>("weight");
+            if (costo)
+            {
+                float va3 = va2.Value<dynamic>("duration");
+                n2.nCosto = va3;
+            }
             string va4 = va2.Value<dynamic>("geometry");
-            n2.nCosto = va3;
             n2.cGeometry = va4;
 
-            Nodo nod3 = MejorRuta.Find(n => n.nLat == n2.nLat && n.nLong == n2.nLong);
-            if (nod3 != null)
-            {
-                nod3.nCosto = va3;
-                nod3.cGeometry = va4;
-            }
-            else
-            {
-                MejorRuta.Add(Clon(n2));
-            }
+            //Nodo nod3 = MejorRuta.Find(n => n.nLat == n2.nLat && n.nLong == n2.nLong);
+            //if (nod3 != null)
+            //{
+            //    nod3.nCosto = va3;
+            //    nod3.cGeometry = va4;
+            //}
+            //else
+            //{
+            //    MejorRuta.Add(Clon(n2));
+            //}
         }
 
         public static List<Nodo> ForeachRecursivo(List<Nodo> lstNodo)
         {
             List<Nodo> lListas = new List<Nodo>();
 
-            RutaNodo(ref lListas, null, null, lstNodo);
+            foreach (Nodo n in lstNodo)
+            {
+                List<Nodo> lst = new List<Nodo>() { lstNodo[0] };
+                RutaNodo2(ref lListas, lst, n, lstNodo);
+            }
 
-            var d = MejorRuta;
-            lListas.ForEach(nn => {
-                var g = d.Find(x => x.nLat == nn.nLat && x.nLong == nn.nLong);
-                if (g != null)
-                {
-                    nn.cGeometry = g.cGeometry;
-                    nn.nCosto = g.nCosto;
-                }
-            });
+            //RutaNodo(ref lListas, null, null, lstNodo);
+
+            //var d = MejorRuta;
+            //lListas.ForEach(nn => {
+            //    var g = d.Find(x => x.nLat == nn.nLat && x.nLong == nn.nLong);
+            //    if (g != null)
+            //    {
+            //        nn.cGeometry = g.cGeometry;
+            //        nn.nCosto = g.nCosto;
+            //    }
+            //});
             return lListas;
 
         }
+
+        public static void RutaNodo2(ref List<Nodo> masCorta, List<Nodo> lst, Nodo i, List<Nodo> lstNodo)
+        {
+            List<Nodo> lst2 = new List<Nodo>();
+            lst2.AddRange(lst);
+            lst2.Add(i);
+            foreach (Nodo i2 in lstNodo)
+            {
+                if(lst2.Count == lstNodo.Count)
+                {
+                    GetNDirection(i, lstNodo[0], true);
+                }
+
+                if (!lst2.Contains(i2))
+                {
+                    //if (lst2.Count == lstNodo.Count)
+                    //    GetNDirection(i, lstNodo[0], true);
+                    GetNDirection(i2, i,true);
+                    //if (lst2.Count == lstNodo.Count)
+                    //    GetNDirection(i, lstNodo[0], true);
+                    RutaNodo2(ref masCorta, lst2, i2, lstNodo);
+                }
+            }
+            List<Nodo> fn = new List<Nodo>();
+            fn.AddRange(lst2);
+            if (masCorta.Count == lstNodo.Count && sumCosto(fn) > sumCosto(masCorta))
+                return;
+            if (lst2.Count == lstNodo.Count)
+            {
+                lst2 = new List<Nodo>() { lstNodo[0] };
+                if (masCorta.Count == 0)
+                    masCorta = fn.Select(n => Clon(n)).ToList();
+                else if (sumCosto(fn) < sumCosto(masCorta))
+                    masCorta = fn.Select(n => Clon(n)).ToList();
+            }
+
+        }
+
         public static void RutaNodo(ref List<Nodo> masCorta, List<Nodo> lst, Nodo i, List<Nodo> lstNodo)
         {
             if (lst == null)

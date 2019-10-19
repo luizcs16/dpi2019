@@ -18,8 +18,9 @@ namespace Aptm2019.Util
         //public double G { get; set; }
         //public double H { get; set; }
         //public bool Cerrado { get; set; } = false;
-        //override public string ToString() {
-        //    return "["+nLat+","+nLong+"]";
-        //}
+        override public string ToString()
+        {
+            return "[" + nLat + "," + nLong + "," + cGeometry + "]";
+        }
     }
 }

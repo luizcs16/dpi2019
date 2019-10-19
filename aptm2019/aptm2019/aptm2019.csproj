@@ -143,6 +143,14 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen\chosen-sprite.png" />
+    <Content Include="Content\chosen\chosen.css" />
+    <Content Include="Content\chosen\chosen.jquery.js" />
+    <Content Include="Content\chosen\chosen.jquery.min.js" />
+    <Content Include="Content\chosen\chosen.min.css" />
+    <Content Include="Content\chosen\chosen.proto.js" />
+    <Content Include="Content\chosen\chosen.proto.min.js" />
     <Content Include="Content\jquery-ui\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\jquery-ui\images\ui-icons_555555_256x240.png" />
     <Content Include="Content\jquery-ui\images\ui-icons_777620_256x240.png" />
@@ -272,6 +280,7 @@
     <Content Include="Content\sweetalert\dist\sweetalert2.min.css" />
     <Content Include="Content\sweetalert\dist\sweetalert2.min.js" />
     <Content Include="Content\sweetalert\dist\_sweetalert.min.js" />
+    <Content Include="Images\camion-cajas.png" />
     <Content Include="Images\carga.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -348,8 +357,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\TestPlanning.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
@@ -364,6 +373,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Empleado\Create.cshtml" />
+    <Content Include="Views\Empleado\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,6 +395,10 @@
     <ProjectReference Include="..\Aptm2019.Security\Aptm2019.Security.csproj">
       <Project>{CBC4A236-4FAD-4B80-9691-CD424E29C63C}</Project>
       <Name>Aptm2019.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aptm2019.Util\Aptm2019.Util.csproj">
+      <Project>{90ABAEF8-85ED-4758-A5F9-BF8388163134}</Project>
+      <Name>Aptm2019.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

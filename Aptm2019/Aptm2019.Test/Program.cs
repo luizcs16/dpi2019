@@ -21,7 +21,7 @@ namespace Aptm2019.Test
                 new {cCliente="FFFFF",nLat=-12.029341,nLong=-77.017403,cDireccion="Institución educativa inicial Los Angeles Del Saber, Avenida Perú, San Juan de Lurigancho, Lima, 15025, Perú",nDuracion=2015.5,nDistancia=19296.1},
                 new {cCliente="FFFFF",nLat=-12.056705,nLong=-77.125822,cDireccion="156, Avenida Miguel Grau, Bellavista, Callao, 07001, Perú",nDuracion=2390.6,nDistancia=19212.6},
                 new {cCliente="FFFFF",nLat=-11.927304,nLong=-77.077526,cDireccion="Estructuras Metalicas Charlie, Avenida Malecón Chillón, Puente Piedra, Lima, 15314, Perú",nDuracion=553,nDistancia=2979.2},
-                new {cCliente="FFFFF",nLat=-11.939207,nLong=-77.062303,cDireccion="Institución Educativa Oscar Freitas Minaya, Francisco de Paula Quiroz, El Retablo, Comas, Lima, 15314, Perú",nDuracion=632.6,nDistancia=3256},
+                //new {cCliente="FFFFF",nLat=-11.939207,nLong=-77.062303,cDireccion="Institución Educativa Oscar Freitas Minaya, Francisco de Paula Quiroz, El Retablo, Comas, Lima, 15314, Perú",nDuracion=632.6,nDistancia=3256},
                 //new {cCliente="FFFFF",nLat=-11.955382,nLong=-77.07284,cDireccion="Avenida San Hernán, Los Olivos, Lima, 0031, Perú",nDuracion=2462.5,nDistancia=18500.8},
                 //new {cCliente="FFFFF",nLat=-12.097433,nLong=-77.027017,cDireccion="Corporación Financiera de Desarrollo - COFIDE, 160, Calle Augusto Tamayo, Centro financiero de San Isidro, San Isidro, Lima, 15073, Perú",nDuracion=2215.9,nDistancia=21171.5},
                 //new {cCliente="FFFFF",nLat=-12.049225,nLong=-77.111985,cDireccion="Puerto 2, Avenida Principal, Minka, Callao, 07011, Perú",nDuracion=1868.3,nDistancia=12025.9},
@@ -58,7 +58,7 @@ namespace Aptm2019.Test
 
             foreach (Nodo n in lstNodo)
             {
-                Console.Write(n + "->");
+                Console.WriteLine(n + "->");
             }
             Console.WriteLine();
 
