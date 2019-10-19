@@ -6,3 +6,11 @@ C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.DataAccessLayer\obj\Rele
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.csproj.CopyComplete
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.dll
 C:\Users\SOL_PC1\source\repos\dpi2019\Aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\bin\Release\Aptm2019.DataAccessLayer.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\bin\Release\Aptm2019.DataAccessLayer.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\bin\Release\Aptm2019.EntityLayer.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\bin\Release\Aptm2019.EntityLayer.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.csproj.CopyComplete
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.DataAccessLayer\obj\Release\Aptm2019.DataAccessLayer.pdb

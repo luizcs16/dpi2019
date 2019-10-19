@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Prototipo APTM";
+    ViewBag.Css = new string[] {
+        "https://openlayers.org/en/v5.3.0/css/ol.css",
+        "/App_Css/Home.css",
+
+    };
+    ViewBag.Js = new dynamic[] {
+        new {src = "https://cdn.polyfill.io/v2/polyfill.min.js?,features=fetch,requestAnimationFrame,Element.prototype.classList,URL" },
+        new {src = "https://openlayers.org/en/v5.3.0/build/ol.js" },
+        new {src = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.4/proj4.js" },
+        new {src = "/App_JS/Home.js",Mode = "Test" }
+    };
+}
+
+<div id="map" class="map"><div id="popup"></div></div>
+<div id="msg">Click para agregar un punto.</div>

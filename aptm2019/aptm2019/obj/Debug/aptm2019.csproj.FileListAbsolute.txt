@@ -181,3 +181,5 @@ C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019\bin\roslyn\System.Ne
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019\bin\roslyn\System.Net.Sockets.dll
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019\bin\Aptm2019.Util.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019\bin\Aptm2019.Util.pdb

@@ -56,10 +56,9 @@
     <Compile Include="Base\ENT_MServicioReparto.cs" />
     <Compile Include="Base\ENT_MUsuario.cs" />
     <Compile Include="Base\ENT_MVehiculo.cs" />
+    <Compile Include="Derived\ENT_MReparto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Derived\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

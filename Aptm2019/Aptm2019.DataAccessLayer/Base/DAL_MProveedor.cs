@@ -21,7 +21,7 @@ namespace Aptm2019.DataAccessLayer
 				parameters = new SqlParameter[]
 				{
 					new SqlParameter("@MPROV_nTipoDoc", x_oENT_MProveedor.MPROV_nTipoDoc),
-					new SqlParameter("@MPROV_nDocumento", x_oENT_MProveedor.MPROV_nDocumento),
+					new SqlParameter("@MPROV_cDocumento", x_oENT_MProveedor.MPROV_cDocumento),
 					new SqlParameter("@MPROV_cNombre", x_oENT_MProveedor.MPROV_cNombre),
 					new SqlParameter("@MPROV_cDireccion", x_oENT_MProveedor.MPROV_cDireccion),
 					new SqlParameter("@MPROV_cTelefono", x_oENT_MProveedor.MPROV_cTelefono),
@@ -58,7 +58,7 @@ namespace Aptm2019.DataAccessLayer
 				{
 					new SqlParameter("@MPROV_nId", x_oENT_MProveedor.MPROV_nId),
 					new SqlParameter("@MPROV_nTipoDoc", x_oENT_MProveedor.MPROV_nTipoDoc),
-					new SqlParameter("@MPROV_nDocumento", x_oENT_MProveedor.MPROV_nDocumento),
+					new SqlParameter("@MPROV_cDocumento", x_oENT_MProveedor.MPROV_cDocumento),
 					new SqlParameter("@MPROV_cNombre", x_oENT_MProveedor.MPROV_cNombre),
 					new SqlParameter("@MPROV_cDireccion", x_oENT_MProveedor.MPROV_cDireccion),
 					new SqlParameter("@MPROV_cTelefono", x_oENT_MProveedor.MPROV_cTelefono),

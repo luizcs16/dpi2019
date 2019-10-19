@@ -1,4 +1,6 @@
-﻿var points = [],
+﻿let mode = document.currentScript.getAttribute('mode');
+
+var points = [],
     msg_el = document.getElementById('msg'),
     url_osrm_nearest = '//router.project-osrm.org/nearest/v1/driving/',
     url_osrm_route = '//router.project-osrm.org/route/v1/driving/',
@@ -7,10 +9,19 @@
     vectorLayer = new ol.layer.Vector({
         source: vectorSource
     }),
+    vectorSource2 = new ol.source.Vector(),
+    vectorLayer2 = new ol.layer.Vector({
+        source: vectorSource2
+    }),
     styles = {
         route: new ol.style.Style({
             stroke: new ol.style.Stroke({
                 width: 3, color: [0, 0, 255, 0.5]
+            })
+        }),
+        route2: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                width: 3, color: [255, 0, 7, 0.5]
             })
         }),
         icon: new ol.style.Style({
@@ -21,7 +32,6 @@
         })
     };
 
-console.clear();
 
 var map = new ol.Map({
     target: 'map',
@@ -29,7 +39,8 @@ var map = new ol.Map({
         new ol.layer.Tile({
             source: new ol.source.OSM()
         }),
-        vectorLayer
+        vectorLayer,
+        vectorLayer2
     ],
     view: new ol.View({
         center: ol.proj.fromLonLat([-77.0030995, -12.0312882]),
@@ -37,35 +48,101 @@ var map = new ol.Map({
     })
 });
 
-map.on('click', function (evt) {
-    utils.getNearest(evt.coordinate).then(function (coord_street) {
-        var last_point = points[points.length - 1];
-        var points_length = points.push(coord_street);
+if (mode === 'Test') {
+    map.on('click', function (evt) {
+        utils.getNearest(evt.coordinate).then(function (coord_street) {
+            var last_point = points[points.length - 1];
+            var points_length = points.push(coord_street);
 
-        utils.createFeature(coord_street);
+            utils.createFeature(coord_street);
 
-        if (points_length < 2) {
-            msg_el.innerHTML = 'Click para agregar otro punto.';
-            return;
-        }
-
-        //get the route
-        var point1 = last_point.join();
-        var point2 = coord_street.join();
-
-        fetch(url_osrm_route + point1 + ';' + point2).then(function (r) {
-            return r.json();
-        }).then(function (json) {
-            if (json.code !== 'Ok') {
-                msg_el.innerHTML = 'Ruta no encontrada.';
+            if (points_length < 2) {
+                msg_el.innerHTML = 'Click para agregar otro punto.';
                 return;
             }
-            msg_el.innerHTML = 'Se agregó una ruta.';
-            //points.length = 0;
-            utils.createRoute(json.routes[0].geometry);
+
+            //get the route
+            var point1 = last_point.join();
+            var point2 = coord_street.join();
+
+            fetch(url_osrm_route + point1 + ';' + point2).then(function (r) {
+                return r.json();
+            }).then(function (json) {
+                if (json.code !== 'Ok') {
+                    msg_el.innerHTML = 'Ruta no encontrada.';
+                    return;
+                }
+                msg_el.innerHTML = 'Se agregó una ruta.';
+                //points.length = 0;
+                utils.createRoute(vectorSource,json.routes[0].geometry, styles.route);
+            });
         });
     });
-});
+} else if (mode === 'TestPlanning') {
+    map.on('click', function (evt) {
+        utils.getNearest(evt.coordinate).then(function (coord_street) {
+
+            var last_point = points[points.length - 1];
+            var points_length = points.push(coord_street);
+
+            utils.createFeature(coord_street);
+
+            if (points_length < 2) {
+                msg_el.innerHTML = 'Click para agregar otro punto.';
+                return;
+            }
+
+                //get the route
+                var point1 = last_point.join();
+                var point2 = coord_street.join();
+
+                fetch(url_osrm_route + point1 + ';' + point2).then(function (r) {
+                    return r.json();
+                }).then(function (json) {
+                    if (json.code !== 'Ok') {
+                        msg_el.innerHTML = 'Ruta no encontrada.';
+                        return;
+                    }
+                    msg_el.innerHTML = 'Se agregó una ruta.';
+                    //points.length = 0;
+                    utils.createRoute(vectorSource,json.routes[0].geometry, styles.route);
+                });
+            
+
+            if (points_length > 2) {
+                vectorSource2.clear();
+                let nodos = [];
+                points.forEach(function (p) {
+                    nodos.push({
+                        cGeometry: '',
+                        nCosto: 0 * 1,
+                        nLat: p[1] * 1,
+                        nLong: p[0] * 1
+                    });
+                });
+
+                $.ajax({
+                    url: 'GetRutasPlan',
+                    type: 'POST',
+                    data: { 'nodos': JSON.stringify(nodos) },
+                    success: function (data) {
+                        data.forEach(function (p) {
+                            utils.createRoute(vectorSource2,p.cGeometry, styles.route2);
+                        });
+                    },
+                    error: function (req, status, error) {
+                        alert("Ocurrió un error inesperado, intente nuevamente en unos minutos o comuníquese con el área de sistemas.");
+                    }
+                });
+
+            }
+            
+
+        });
+    });
+}
+
+
 
 var utils = {
     getNearest: function (coord) {
@@ -89,7 +166,7 @@ var utils = {
         feature.setStyle(styles.icon);
         vectorSource.addFeature(feature);
     },
-    createRoute: function (polyline) {
+    createRoute: function (vectorSource,polyline,styles) {
         // route is ol.geom.LineString
         var route = new ol.format.Polyline({
             factor: 1e5
@@ -101,7 +178,7 @@ var utils = {
             type: 'route',
             geometry: route
         });
-        feature.setStyle(styles.route);
+        feature.setStyle(styles);
         vectorSource.addFeature(feature);
     },
     to4326: function (coord) {
@@ -118,5 +195,54 @@ $(document).ready(function () {
     $('#accordionAPTM').on('show.bs.collapse', function () {;
         $(this).find('.collapse.in').collapse('hide');
     })
+    $("#cboMReparto").chosen({ no_results_text: "No existen repartos para filtrar." });
+    if (mode === 'Index') {
+        $("#cboMReparto").change(function () {
+            let idReparto = $("#cboMReparto").val() * 1;
+            $.ajax({
+                url: 'GetDetallesReparto',
+                type: 'POST',
+                data: { 'idReparto': idReparto },
+                success: function (data) {
+                    $("#txtPlaca").val(data.cPLaca);
+                    $("#txtConductor").val(data.cEMP);
+                    $("#txtHorario").val(data.cHorario);
+                    let inner = '';
+                    data.oCarga.forEach(function (p) {
+                        points.push([p.nLong, p.nLat]);
 
+                        utils.createFeature([p.nLong, p.nLat]);
+
+                        inner += '<div class="card-header">' + p.cCliente + '</div >' + p.cDireccion;
+
+                    });
+
+                    $("#txtDetalleReparto").html(inner);
+                },
+                error: function (req, status, error) {
+                    alert("Ocurrió un error inesperado, intente nuevamente en unos minutos o comuníquese con el área de sistemas.");
+                }
+            });
+        });
+        $("#btnGenerarRutas").click(function () {
+
+            points.forEach(function (p, r, a) {
+
+                if (r < points.length - 1) {
+                    let url = url_osrm_route + a[r] + ';' + a[r + 1];
+                    console.log(url);
+                    fetch(url).then(function (r) {
+                        return r.json();
+                    }).then(function (json) {
+                        utils.createRoute(vectorSource,json.routes[0].geometry, styles.route);
+                    });
+                }
+
+            });
+
+        });
+    }
+    
 });
+
+

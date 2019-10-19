@@ -14,11 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
-
     @Styles.Render("~/Content/css")
     <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.structure.min.css" />
     <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="~/Content/chosen/chosen.min.css" />
     <link rel="stylesheet" href="~/Content/sweetalert/dist/sweetalert2.min.css" />
     <link rel="stylesheet" href="~/Content/jtable/themes/metro/blue/jtable.css" />
     <link rel="stylesheet" href="~/App_Css/_Site.css" />
@@ -33,6 +33,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Content/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Content/chosen/chosen.jquery.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.js"></script>*@
     @Scripts.Render("~/bundles/pooper")
     @Scripts.Render("~/bundles/bootstrap")
 
@@ -42,9 +44,9 @@
 
 </head>
 <body>
-    <div id="loadingModal" style="display:none;">
+    <div id="loadingModal" class="loadingSpinner" style="display:none;">
         <div>
-            <div style="display: block;" id="loadingMessage"></div>
+            <div class="jtable-busy-message" style="display: block;" id="loadingMessage"></div>
         </div>
     </div>
     @if (!lAutorizado)
@@ -53,77 +55,77 @@
     }
     else
     {
-<div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
 
-        <div id="dismiss">
-            <i class="fas fa-arrow-left"></i>
-        </div>
+                <div id="dismiss">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
 
-        <div class="sidebar-header">
-            APTM
-        </div>
+                <div class="sidebar-header">
+                    APTM
+                </div>
 
-        <ul class="list-unstyled components">
-            <p>Tesis 2019-2</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
+                <ul class="list-unstyled components">
+                    <p>Tesis 2019-2</p>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Prueba 1", "Test", "Home")</li>
+                            <li>@Html.ActionLink("Prueba 2", "TestPlanning", "Home")</li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a href="#">About</a>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a href="#seguridadSubmenu" data-toggle="collapse" aria-expanded="false">Perfiles</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        </ul>
                     </li>
+                    <li>@Html.ActionLink("Cerrar sesion", "Logout", "Seguridad")</li>
                 </ul>
-            </li>
-            <li>
-                <a href="#seguridadSubmenu" data-toggle="collapse" aria-expanded="false">Perfiles</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
-            </li>
-            <li>@Html.ActionLink("Cerrar sesion", "Logout", "Seguridad")</li>
-        </ul>
-    </nav>
+            </nav>
 
-    <main>
-        <div id="sidebarCollapse"></div>
-        @RenderBody()
-    </main>
+            <main>
+                <div id="sidebarCollapse"></div>
+                @RenderBody()
+            </main>
 
 
-    @if (ViewBag.Js != null)
-    {
-        foreach (object js in ViewBag.Js as IEnumerable<dynamic>)
-        {
-            string atrr = string.Empty;
-            foreach (System.Reflection.PropertyInfo a in js.GetType().GetProperties())
+            @if (ViewBag.Js != null)
             {
-                atrr += a.Name + "=" + a.GetValue(js, null) + " ";
+                foreach (object js in ViewBag.Js as IEnumerable<dynamic>)
+                {
+                    string atrr = string.Empty;
+                    foreach (System.Reflection.PropertyInfo a in js.GetType().GetProperties())
+                    {
+                        atrr += a.Name + "=" + a.GetValue(js, null) + " ";
+                    }
+                    <script @atrr></script>
+                }
             }
-            <script @atrr></script>
-        }
-    }
 
-    <!-- Dark Overlay element -->
-    <div class="overlay"></div>
-</div>
+            <!-- Dark Overlay element -->
+            <div class="overlay"></div>
+        </div>
     }
 
     @RenderSection("scripts", required: false)

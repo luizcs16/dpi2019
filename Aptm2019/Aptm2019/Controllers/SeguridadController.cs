@@ -92,7 +92,7 @@ namespace Aptm2019.Controllers
                     }
                     else
                     {
-                        urlRedirect = "Aplicacion/Index";
+                        urlRedirect = "Home/Index";
                     }
 
 

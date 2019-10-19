@@ -2,8 +2,8 @@ using System;
 
 namespace Aptm2019.EntityLayer
 {
-	public class ENT_MEmpleado
-	{
+    public class ENT_MEmpleado
+    {
         #region Constructors
 
         /// <summary>
@@ -16,13 +16,13 @@ namespace Aptm2019.EntityLayer
         /// <summary>
         /// Initializes a new instance of the ENT_MEmpleado class.
         /// </summary>
-        public ENT_MEmpleado(string MEMP_cNombre, string MEMP_cApePaterno, string MEMP_cApeMaterno, int MEMP_nTipoDoc, int MEMP_nDocumento, string MEMP_cDireccion, string MEMP_cTelefono, bool MEMP_lActivo, int MEMP_nUsrReg, DateTime MEMP_dFechReg, int MEMP_nUsrMod, DateTime MEMP_dFechMod)
+        public ENT_MEmpleado(string MEMP_cNombre, string MEMP_cApePaterno, string MEMP_cApeMaterno, int MEMP_nTipoDoc, string MEMP_cDocumento, string MEMP_cDireccion, string MEMP_cTelefono, bool MEMP_lActivo, int MEMP_nUsrReg, DateTime MEMP_dFechReg, int MEMP_nUsrMod, DateTime MEMP_dFechMod)
         {
             this.MEMP_cNombre = MEMP_cNombre;
             this.MEMP_cApePaterno = MEMP_cApePaterno;
             this.MEMP_cApeMaterno = MEMP_cApeMaterno;
             this.MEMP_nTipoDoc = MEMP_nTipoDoc;
-            this.MEMP_nDocumento = MEMP_nDocumento;
+            this.MEMP_cDocumento = MEMP_cDocumento;
             this.MEMP_cDireccion = MEMP_cDireccion;
             this.MEMP_cTelefono = MEMP_cTelefono;
             this.MEMP_lActivo = MEMP_lActivo;
@@ -35,14 +35,14 @@ namespace Aptm2019.EntityLayer
         /// <summary>
         /// Initializes a new instance of the ENT_MEmpleado class.
         /// </summary>
-        public ENT_MEmpleado(int MEMP_nId, string MEMP_cNombre, string MEMP_cApePaterno, string MEMP_cApeMaterno, int MEMP_nTipoDoc, int MEMP_nDocumento, string MEMP_cDireccion, string MEMP_cTelefono, bool MEMP_lActivo, int MEMP_nUsrReg, DateTime MEMP_dFechReg, int MEMP_nUsrMod, DateTime MEMP_dFechMod)
+        public ENT_MEmpleado(int MEMP_nId, string MEMP_cNombre, string MEMP_cApePaterno, string MEMP_cApeMaterno, int MEMP_nTipoDoc, string MEMP_cDocumento, string MEMP_cDireccion, string MEMP_cTelefono, bool MEMP_lActivo, int MEMP_nUsrReg, DateTime MEMP_dFechReg, int MEMP_nUsrMod, DateTime MEMP_dFechMod)
         {
             this.MEMP_nId = MEMP_nId;
             this.MEMP_cNombre = MEMP_cNombre;
             this.MEMP_cApePaterno = MEMP_cApePaterno;
             this.MEMP_cApeMaterno = MEMP_cApeMaterno;
             this.MEMP_nTipoDoc = MEMP_nTipoDoc;
-            this.MEMP_nDocumento = MEMP_nDocumento;
+            this.MEMP_cDocumento = MEMP_cDocumento;
             this.MEMP_cDireccion = MEMP_cDireccion;
             this.MEMP_cTelefono = MEMP_cTelefono;
             this.MEMP_lActivo = MEMP_lActivo;
@@ -81,9 +81,9 @@ namespace Aptm2019.EntityLayer
         public int MEMP_nTipoDoc { get; set; }
 
         /// <summary>
-        /// Gets or sets the MEMP_nDocumento value. 
+        /// Gets or sets the MEMP_cDocumento value. 
         /// </summary>
-        public int MEMP_nDocumento { get; set; }
+        public string MEMP_cDocumento { get; set; }
 
         /// <summary>
         /// Gets or sets the MEMP_cDireccion value. 

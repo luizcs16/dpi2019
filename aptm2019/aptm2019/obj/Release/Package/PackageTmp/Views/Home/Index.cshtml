@@ -1,57 +1,80 @@
 ﻿@{
     ViewBag.Title = "Prototipo APTM";
     ViewBag.Css = new string[] {
-        "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.css",
+        "https://openlayers.org/en/v5.3.0/css/ol.css",
         "/App_Css/Home.css",
 
     };
     ViewBag.Js = new dynamic[] {
-        new {src = "https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.js" },
-        new {src ="https://cdn.rawgit.com/stefanpenner/es6-promise/master/dist/es6-promise.min.js" },
-        new {src = "https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch" },
-        new {src = "/App_JS/Home.js" }
+        new {src = "https://cdn.polyfill.io/v2/polyfill.min.js?,features=fetch,requestAnimationFrame,Element.prototype.classList,URL" },
+        new {src = "https://openlayers.org/en/v5.3.0/build/ol.js" },
+        new {src = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.4/proj4.js" },
+        new {src = "/App_JS/Home.js",mode = "Index" }
     };
 }
 
-<div id="map"></div>
+<div id="map" class="map"><div id="popup"></div></div>
 <div id="msg">Click para agregar un punto.</div>
 <div id="menu_aptm">
     <div class="accordion" id="accordionAPTM">
+        @Html.DropDownList("cboMReparto", ViewBag.lstRepartos as SelectList, "Seleccione un registro de despacho", new { @class = "form-control", @index = "demo" })
         <div class="card">
             <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">1. What is HTML?</a>
-                </h2>
+                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">Despacho</a>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionAPTM" style="">
                 <div class="card-body">
-                    <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Placa</span>
+                        </div>
+                        <input type="text" id="txtPlaca" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" readonly>
+                    </div>
+
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Conductor</span>
+                        </div>
+                        <input type="text" id="txtConductor" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" readonly>
+                    </div>
+
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Horario</span>
+                        </div>
+                        <input type="text" id="txtHorario" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" readonly>
+                    </div>
+
+
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false">2. What is Bootstrap?</a>
-                </h2>
+                <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false">Detalles de despacho</a>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionAPTM" style="">
-                <div class="card-body">
-                    <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card" id="txtDetalleReparto">
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-        <div class="card">
+        @*<div class="card">
             <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <a class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">3. What is CSS?</a>
-                </h2>
+                <a class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">3. What is CSS?</a>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionAPTM" style="">
                 <div class="card-body">
                     <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
                 </div>
             </div>
-        </div>
+        </div>*@
+        <button type="button" class="btn btn-success" style="width:100%" id="btnGenerarRutas">Generar Ruta</button>
     </div>
 </div>

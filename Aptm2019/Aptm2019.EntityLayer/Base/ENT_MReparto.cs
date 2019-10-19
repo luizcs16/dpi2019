@@ -2,7 +2,7 @@ using System;
 
 namespace Aptm2019.EntityLayer
 {
-	public class ENT_MReparto
+	public partial class ENT_MReparto
 	{
 		#region Constructors
 

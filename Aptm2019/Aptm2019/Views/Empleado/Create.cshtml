@@ -1,0 +1,89 @@
+﻿@model Aptm2019.EntityLayer.ENT_MEmpleado
+@{
+        ViewBag.Js = new dynamic[] {
+        new {src = "/App_JS/Empleado.js", mode = "Create" }
+    };
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header badge-primary">Empleados</div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Empleado", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.ValidationSummary(true)
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="Nombre" class="col-md-12 control-label"><strong>Nombre</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cNombre, new { @class = "form-control warning-input", @placeholder = "Ingrese su nombre" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="ApellidoPaterno" class="col-md-12 control-label"><strong>Apellido Paterno</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cNombre, new { @class = "form-control warning-input", @placeholder = "Ingrese su nombre" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="ApellidoMaterno" class="col-md-12 control-label"><strong>Apellido Materno</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cApeMaterno, new { @class = "form-control warning-input", @placeholder = "Ingrese su apellido materno" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="TipoDocumento" class="col-md-12 control-label"><strong>Tipo de Documento</strong></label>
+                        <div class="col-md-12">
+                            @Html.DropDownListFor(i => i.MEMP_nTipoDoc, ViewBag.lstTipoDocumento as SelectList, "Seleccione el Tipo de Documento", new { @class = "form-control", @index = "demo" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="Documento" class="col-md-12 control-label"><strong>Documento</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cDocumento, new { @class = "form-control warning-input", @placeholder = "Ingrese su número de documento" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="Direccion" class="col-md-12 control-label"><strong>Dirección</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cDireccion, new { @class = "form-control warning-input", @placeholder = "Ingrese su número de documento" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="Telefono" class="col-md-12 control-label"><strong>Teléfono</strong></label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(i => i.MEMP_cTelefono, new { @class = "form-control warning-input", @placeholder = "Ingrese su número de documento" })
+                        </div>
+                        <div class="col-md-6 error-block"> Campo requerido. </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        @*....*@
+                    </div>
+                </div>
+
+                <div class="col-sm-8" style="text-align: right">
+                    <a href="@VirtualPathUtility.ToAbsolute("~/Empleado/Index")" class="btn btn-secondary">Cancelar</a>
+                    <input type="button" value="Crear" class="btn btn-primary" onclick="return ValidarFormulario()" />
+                </div>
+            }
+        </div>
+        <div class="card-footer  badge-primary"> Formulario para registrar un empleado! </div>
+    </div>
+</div>
+

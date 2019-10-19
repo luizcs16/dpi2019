@@ -1,0 +1,11 @@
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Aptm2019.Test.exe.config
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Aptm2019.Test.exe
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Aptm2019.Test.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Aptm2019.Util.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Aptm2019.Util.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\obj\Debug\Aptm2019.Test.csprojAssemblyReference.cache
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\obj\Debug\Aptm2019.Test.csproj.CopyComplete
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\obj\Debug\Aptm2019.Test.exe
+C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Test\obj\Debug\Aptm2019.Test.pdb

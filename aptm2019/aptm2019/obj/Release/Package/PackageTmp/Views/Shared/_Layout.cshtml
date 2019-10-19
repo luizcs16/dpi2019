@@ -13,15 +13,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css" />
 
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="~/Content/chosen/chosen.min.css" />
     <link rel="stylesheet" href="~/Content/sweetalert/dist/sweetalert2.min.css" />
+    <link rel="stylesheet" href="~/Content/jtable/themes/metro/blue/jtable.css" />
     <link rel="stylesheet" href="~/App_Css/_Site.css" />
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     @if (ViewBag.Css != null)
     {
@@ -31,15 +31,22 @@
         }
     }
 
-    <script src="~/Content/sweetalert/dist/sweetalert2.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/Content/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Content/chosen/chosen.jquery.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.js"></script>*@
+    @Scripts.Render("~/bundles/pooper")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <div id="loadingModal" style="display:none;">
+    <div id="loadingModal" class="loadingSpinner" style="display:none;">
         <div>
-            <div style="display: block;" id="loadingMessage"></div>
+            <div class="jtable-busy-message" style="display: block;" id="loadingMessage"></div>
         </div>
     </div>
     @if (!lAutorizado)
@@ -66,8 +73,8 @@
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Prueba 1", "Test", "Home")</li>
+                            <li>@Html.ActionLink("Prueba 2", "TestPlanning", "Home")</li>
                         </ul>
                     </li>
                     <li>
@@ -102,8 +109,6 @@
                 @RenderBody()
             </main>
 
-            <!-- Popper.JS -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
             @if (ViewBag.Js != null)
             {
@@ -118,12 +123,12 @@
                 }
             }
 
-            @RenderSection("scripts", required: false)
             <!-- Dark Overlay element -->
             <div class="overlay"></div>
         </div>
     }
 
+    @RenderSection("scripts", required: false)
     <script src="~/Content/sweetalert/dist/sweetalert2.min.js"></script>
     <script src="~/App_JS/_Site.js" asp-append-version="true"></script>
 
