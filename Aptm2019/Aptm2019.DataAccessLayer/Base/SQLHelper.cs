@@ -28,7 +28,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace Microsoft.ApplicationBlocks.Data
+namespace Microsoft.ApplicationBlocks.Aptm2019Data
 {
 	/// <summary>
 	/// The SqlHelper class is intended to encapsulate high performance, scalable best practices for 

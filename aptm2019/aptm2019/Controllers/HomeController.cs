@@ -95,7 +95,24 @@ namespace aptm2019.Controllers
         [HttpPost]
         public ActionResult GetRutasPlan(string nodos) {
             List<Nodo> jo = JsonConvert.DeserializeObject<List<Nodo>>(nodos);
-            return Json(Ruta.ForeachRecursivo(jo));
+            List<Arista> aristas = null;
+            if (TempData["aristas"] != null)
+            {
+                try {
+                    aristas = TempData["aristas"] as List<Arista>;
+                }
+                catch
+                {
+                    aristas = new List<Arista>();
+                }
+            }
+
+            Ruta ruta = new Ruta(aristas);
+
+            List<Nodo> res = ruta.ForeachRecursivo(jo);
+            TempData["aristas"] = ruta.historialRutas;
+
+            return Json(res);
         }
     }
 }

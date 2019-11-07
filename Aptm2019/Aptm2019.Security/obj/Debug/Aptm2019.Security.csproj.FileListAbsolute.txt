@@ -6,3 +6,4 @@ C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Security\bin\Debug\A
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Security\bin\Debug\Aptm2019.Security.pdb
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Security\obj\Debug\Aptm2019.Security.dll
 C:\Users\Luis\source\repos\GitHub\dpi2019\Aptm2019\Aptm2019.Security\obj\Debug\Aptm2019.Security.pdb
+C:\Users\Luis\source\repos\GitHub\dpi2019\aptm2019\Aptm2019.Security\obj\Debug\Aptm2019.Security.csprojAssemblyReference.cache

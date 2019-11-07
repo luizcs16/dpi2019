@@ -110,6 +110,8 @@ if (mode === 'Test') {
             
 
             if (points_length > 2) {
+
+                vectorSource1.clear();
                 vectorSource2.clear();
                 let nodos = [];
                 points.forEach(function (p) {

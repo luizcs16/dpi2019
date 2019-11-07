@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Microsoft.ApplicationBlocks.Data
+namespace Microsoft.ApplicationBlocks.Aptm2019Data
 {
     /// <summary>
     /// Excepcion que se produce en la capa de datos

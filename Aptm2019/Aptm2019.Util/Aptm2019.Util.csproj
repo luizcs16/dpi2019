@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arista.cs" />
     <Compile Include="AStar.cs" />
     <Compile Include="DataTableUtil.cs" />
     <Compile Include="Nodo.cs" />

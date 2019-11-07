@@ -1,6 +1,16 @@
-﻿using Aptm2019.Util;
+﻿
+using Aptm2019.BusinessLogicLayer;
+using Aptm2019.EntityLayer;
+using Aptm2019.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NPOI.HSSF.UserModel;
+using NPOI.HSSF.Util;
+using NPOI.SS.UserModel;
+using NPOI.SS.Util;
+using NPOI.XSSF.UserModel;
+using PM.BusinessLogicLayer;
+using PM.EntityLayer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +26,7 @@ namespace Aptm2019.Test
     {
         static void Main(string[] args)
         {
+            /*
             List<dynamic> oCarga = new List<dynamic> {
 
                 new {cCliente="FFFFF",nLat=-12.029341,nLong=-77.017403,cDireccion="Institución educativa inicial Los Angeles Del Saber, Avenida Perú, San Juan de Lurigancho, Lima, 15025, Perú",nDuracion=2015.5,nDistancia=19296.1},
@@ -52,21 +63,185 @@ namespace Aptm2019.Test
                 nLat = n.nLat,
             }).ToList();
 
-            
-            
-            Ruta.ForeachRecursivo(lstNodo);
+            */
+            GenerarSimulado();
 
-            foreach (Nodo n in lstNodo)
+        }
+        public static void GenerarExcel(int countSimulado, int cantPedidos, int cantCamiones) { 
+
+            List<ENT_PEDIDO> lstPedidos = new BLL_PEDIDO().SelectAll777(cantPedidos);
+
+            XSSFWorkbook oLibro = new XSSFWorkbook();
+            XSSFCellStyle bStylehead = (XSSFCellStyle)oLibro.CreateCellStyle();
+            bStylehead.BorderBottom = BorderStyle.Thin;
+            bStylehead.BorderLeft = BorderStyle.Thin;
+            bStylehead.BorderRight = BorderStyle.Thin;
+            bStylehead.BorderTop = BorderStyle.Thin;
+            bStylehead.Alignment = HorizontalAlignment.Left;
+            bStylehead.VerticalAlignment = VerticalAlignment.Center;
+            //bStylehead.FillBackgroundColor = HSSFColor.Black.Index;
+            bStylehead.FillBackgroundXSSFColor = new XSSFColor(new byte[3] { 0, 0, 0 });
+            //bStylehead.FillForegroundColor = HSSFColor.White.Index;
+            bStylehead.FillForegroundXSSFColor = new XSSFColor(new byte[3] { 255, 255, 255 });
+
+            XSSFCellStyle bStylehead1 = (XSSFCellStyle)oLibro.CreateCellStyle();
+            bStylehead1.BorderBottom = BorderStyle.Thin;
+            bStylehead1.BorderLeft = BorderStyle.Thin;
+            bStylehead1.BorderRight = BorderStyle.Thin;
+            bStylehead1.BorderTop = BorderStyle.Thin;
+            bStylehead1.Alignment = HorizontalAlignment.Center;
+            bStylehead1.VerticalAlignment = VerticalAlignment.Center;
+            //bStylehead1.FillBackgroundColor = HSSFColor.Black.Index;
+            bStylehead1.FillBackgroundXSSFColor = new XSSFColor(new byte[3] { 0, 0, 0 });
+            //bStylehead1.FillForegroundColor = HSSFColor.White.Index;
+            bStylehead1.FillForegroundXSSFColor = new XSSFColor(new byte[3] { 255, 255, 255 });
+
+            ISheet oHoja1 = oLibro.CreateSheet("Pedidos(" + cantPedidos + ")");
+
+            Random random = new Random();
+            int i = 1;
+            int count = 0;
+            ICell tmpCell;
+            IRow fila = oHoja1.CreateRow(i);
+            tmpCell = fila.CreateCell(1);
+            tmpCell.SetCellValue("TOTAL DE PEDIDOS: " + lstPedidos.Count);
+            tmpCell.CellStyle = bStylehead;
+            fila.CreateCell(2).CellStyle = bStylehead;
+            fila.CreateCell(3).CellStyle = bStylehead;
+            fila.CreateCell(4).CellStyle = bStylehead;
+            fila.CreateCell(5).CellStyle = bStylehead;
+            fila.CreateCell(6).CellStyle = bStylehead;
+            fila.CreateCell(7).CellStyle = bStylehead;
+            oHoja1.AddMergedRegion(new CellRangeAddress(i, i, 1, 8));
+            fila = oHoja1.CreateRow(++i);
+            tmpCell = fila.CreateCell(1);
+            tmpCell.SetCellValue("N°");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(2);
+            tmpCell.SetCellValue("CODIGO DE GUÍA");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(3);
+            tmpCell.SetCellValue("CLIENTE");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(4);
+            tmpCell.SetCellValue("DIRECCIÓN");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(5);
+            tmpCell.SetCellValue("DISTRITO");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(6);
+            tmpCell.SetCellValue("LATITUD");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(7);
+            tmpCell.SetCellValue("LONGITUD");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(8);
+            tmpCell.SetCellValue("VOLUMEN");
+            tmpCell.CellStyle = bStylehead1;
+            foreach (ENT_PEDIDO p in lstPedidos)
             {
-                Console.WriteLine(n + "->");
+                fila = oHoja1.CreateRow(++i);
+                tmpCell = fila.CreateCell(1);
+                tmpCell.SetCellValue(++count);
+                tmpCell.CellStyle = bStylehead1;
+                tmpCell = fila.CreateCell(2);
+                tmpCell.SetCellValue(p.GUIA.ToString());
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(3);
+                tmpCell.SetCellValue(p.SERDETC_APELLIDOS);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(4);
+                tmpCell.SetCellValue(p.SERDETC_DIRECCION);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(5);
+                tmpCell.SetCellValue(p.SERDETC_DISTRITO);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(6);
+                tmpCell.SetCellValue(p.SERDETN_LATITUD);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(7);
+                tmpCell.SetCellValue(p.SERDETN_LONGITUD);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(8);
+                tmpCell.SetCellValue(random.Next(10, 100) + 1);
+                tmpCell.CellStyle = bStylehead;
             }
-            Console.WriteLine();
+            for (i = 0; i < 9; i++)
+            {
+                oHoja1.AutoSizeColumn(i);
+            }
+            i = 1;
+            count = 0;
+            List<ENT_CAMION> lstCamiones = new BLL_CAMION().SelectAll777(cantCamiones);
+            ISheet oHoja2 = oLibro.CreateSheet("Camiones("+cantCamiones+")");
 
+            fila = oHoja2.CreateRow(i);
+            tmpCell = fila.CreateCell(1);
+            tmpCell.SetCellValue("CAMIONES DISPONIBLES: " + lstCamiones.Count);
+            tmpCell.CellStyle = bStylehead;
+            fila.CreateCell(2).CellStyle = bStylehead;
+            fila.CreateCell(3).CellStyle = bStylehead;
+            oHoja2.AddMergedRegion(new CellRangeAddress(i, i, 1, 4));
+            fila = oHoja2.CreateRow(++i);
+            tmpCell = fila.CreateCell(1);
+            tmpCell.SetCellValue("N°");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(2);
+            tmpCell.SetCellValue("PLACA");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(3);
+            tmpCell.SetCellValue("CHOFER");
+            tmpCell.CellStyle = bStylehead1;
+            tmpCell = fila.CreateCell(4);
+            tmpCell.SetCellValue("VOLUMEN MAXIMO");
+            tmpCell.CellStyle = bStylehead1;
+            foreach (ENT_CAMION c in lstCamiones)
+            {
+                fila = oHoja2.CreateRow(++i);
+                tmpCell = fila.CreateCell(1);
+                tmpCell.SetCellValue(++count);
+                tmpCell.CellStyle = bStylehead1;
+                tmpCell = fila.CreateCell(2);
+                tmpCell.SetCellValue(c.VEHC_PLACA);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(3);
+                tmpCell.SetCellValue(c.CONC_NOMBRES + " " + c.CONC_APELLIDOS);
+                tmpCell.CellStyle = bStylehead;
+                tmpCell = fila.CreateCell(4);
+                int r1 = ((random.Next(1, 9) + 1) * 10);
+                int r2 = ((random.Next(3, 7) + 1) * 100);
 
-            Console.ReadKey();
+                tmpCell.SetCellValue(r1+r2);
+                tmpCell.CellStyle = bStylehead;
+            }
 
+            for (i = 0; i < 5; i++)
+            {
+                oHoja2.AutoSizeColumn(i);
+            }
+
+            using (FileStream fs = new FileStream(@"D:\Desarrollo\Situación_"+ countSimulado + ".xlsx", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                oLibro.Write(fs);
+                oLibro.Close();
+                //fs.Flush();
+                fs.Close();
+            }
         }
 
         
+        public static void GenerarSimulado()
+        {
+            Random random = new Random();
+            for (int i = 1; i <= 500; i++)
+            {
+                int r1 = ((random.Next(3, 7) + 1) * 10);
+                int r2 = ((random.Next(3, 7) + 1) * 100);
+                int r3 = (random.Next(70, 700) + 1);
+                GenerarExcel(i, r3, r1 + r2);
+                Console.WriteLine("Situación "+i+" completado!");
+            }
+        }
+
     }
 }

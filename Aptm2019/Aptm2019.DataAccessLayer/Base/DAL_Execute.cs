@@ -6,11 +6,11 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace Microsoft.ApplicationBlocks.Data
+namespace Microsoft.ApplicationBlocks.Aptm2019Data
 {
     public class DAL_Execute
     {
-        protected string strConexion = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+        protected string strConexion = ConfigurationManager.ConnectionStrings["Aptm2019Connection"].ConnectionString;
         protected bool Ejecutado = false;
         protected string Error = string.Empty;
 

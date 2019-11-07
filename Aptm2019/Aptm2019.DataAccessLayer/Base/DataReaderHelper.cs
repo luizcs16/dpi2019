@@ -7,7 +7,7 @@ using System.Data;
 using System.Reflection;
 using System.Data.SqlClient;
 
-namespace Microsoft.ApplicationBlocks.Data
+namespace Microsoft.ApplicationBlocks.Aptm2019Data
 {
     public static class DataReaderHelper
     {
