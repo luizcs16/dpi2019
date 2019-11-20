@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using Microsoft.ApplicationBlocks.Data;
 using Aptm2019.EntityLayer;
+using Microsoft.ApplicationBlocks.Aptm2019Data;
 
 namespace Aptm2019.DataAccessLayer
 {

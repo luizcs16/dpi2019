@@ -1,9 +1,11 @@
 ﻿using Aptm2019.BusinessLogicLayer;
 using Aptm2019.EntityLayer;
 using Aptm2019.Util;
+using Microsoft.ApplicationBlocks.Aptm2019Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,13 +23,14 @@ namespace aptm2019.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult EmpleadoListByFiter(string name = "", int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+        public JsonResult EmpleadoListByFilter(List<ENT_JTableFilter> filters, int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
         {
+
             try
             {
                 int TotalRecordCount;
                 List<ENT_MEmpleado> Records = new BLL_MEmpleado()
-                    .SelectListJTable(name, null, jtStartIndex, jtPageSize, jtSorting, false, out TotalRecordCount);
+                    .SelectListJTable(filters, jtStartIndex, jtPageSize, jtSorting, out TotalRecordCount);
                 return Json(new { Result = "OK", Records, TotalRecordCount });
             }
             catch (Exception ex)

@@ -1,4 +1,5 @@
 ﻿let mode = document.currentScript.getAttribute('Mode');
+
 $(document).ready(function () {
     if (mode === 'Index') {
         $('#EmpleadoTableContainer').jtable({
@@ -7,7 +8,7 @@ $(document).ready(function () {
             sorting: true,
             defaultSorting: 'Name ASC',
             actions: {
-                listAction: '/Empleado/EmpleadoListByFiter'
+                listAction: '/Empleado/EmpleadoListByFilter'
                 //deleteAction: '/Demo/DeleteStudent',
                 //updateAction: '/Demo/UpdateStudent',
                 //createAction: '/Demo/CreateStudent'
@@ -24,19 +25,34 @@ $(document).ready(function () {
                     title: 'Nombre',
                     width: '23%'
                 },
-                MEMP_cApePaterno: {},
-                MEMP_cApeMaterno: {},
-                MEMP_nTipoDoc: {
-                    //options: '/Demo/GetCityOptions'
+                MEMP_cApePaterno: {
+                    title: 'Apellido Paterno',
+                    width: '23%'
                 },
-                MEMP_nDocumento: {},
-                MEMP_cDireccion: {},
-                MEMP_cTelefono: {},
+                MEMP_cApeMaterno: {
+                    title: 'Apellido Materno',
+                    width: '23%'
+                },
+                //MEMP_nTipoDoc: {
+                //    //options: '/Demo/GetCityOptions'
+                //},
+                MEMP_cDocumento: {
+                    title: 'Documento',
+                    width: '23%'
+                },
+                MEMP_cDireccion: {
+                    title: 'Dirección',
+                    width: '23%'
+                },
+                MEMP_cTelefono: {
+                    title: 'Telefono',
+                    width: '23%'
+                },
                 MEMP_lActivo: {
                     type: 'checkbox',
                     values: { 'false': 'Passive', 'true': 'Active' },
                 },
-                MEMP_nUsrReg: {},
+                //MEMP_nUsrReg: {},
                 MEMP_dFechReg: {
                     title: 'Record date',
                     width: '15%',
@@ -46,9 +62,22 @@ $(document).ready(function () {
                     edit: false,
                     sorting: false //This column is not sortable!
                 },
-                MEMP_nUsrMod: {},
-                MEMP_dFechMod: {}
+                //MEMP_nUsrMod: {},
+                //MEMP_dFechMod: {}
             }
+        });
+        $("#txtNombreEmpleado").keyup(function (evt) {
+            let value = $("#txtNombreEmpleado").val();
+            if (value.length < 4)
+                return;
+            $('#EmpleadoTableContainer').jtable('load', {
+                filters: [
+                    new JTableFilter(
+                        ['MEMP_cNombre', 'MEMP_cApePaterno', 'MEMP_cApeMaterno'],
+                        value, true
+                    )
+                ]
+            });
         });
     }
     if (mode === 'Create' || mode === 'Update') {

@@ -7,14 +7,29 @@
 }
 <div class="container">
     <div class="card">
-        <div class="card-header badge-primary">Empleados</div>
-        <div class="card-body">
-            <p>
-                @Html.ActionLink("Nuevo Empleado", "Create", null, new { @class = "btn btn-success" })
-            </p>
-            <div id="EmpleadoTableContainer"></div>
+        <div class="card-header badge-primary">
+            <div class="row">
+                <div class="col-7">Empleados</div>
+                <div class="col-5 text-right">@Html.ActionLink("Nuevo Empleado", "Create", null, new { @class = "btn btn-success" })</div>
+            </div>
         </div>
-        <div class="card-footer  badge-primary"> Lista de empleados! </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="input-group col-12">
+                    <input type="text" class="form-control" id="txtNombreEmpleado" placeholder="Filtrar por nombre">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fa fa-search icon"></i></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div id="EmpleadoTableContainer" class="col-12"></div>
+            </div>
+        </div>
+        <div class="card-footer badge-primary"> Lista de empleados! </div>
     </div>
 </div>
 

@@ -135,6 +135,7 @@
     <Content Include="App_Css\_Site.css" />
     <Content Include="App_JS\Empleado.js" />
     <Content Include="App_JS\Home.js" />
+    <Content Include="App_JS\JTable.js" />
     <Content Include="App_JS\Seguridad.js" />
     <Content Include="App_JS\_Site.js" />
     <Content Include="Content\bootstrap-grid.css" />

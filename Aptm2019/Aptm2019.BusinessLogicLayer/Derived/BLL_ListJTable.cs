@@ -1,4 +1,4 @@
-﻿using Microsoft.ApplicationBlocks.Data;
+﻿using Microsoft.ApplicationBlocks.Aptm2019Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ namespace Aptm2019.BusinessLogicLayer
 {
     public class BLL_ListJTable
     {
-        public List<T> SelectListJTable<T>(string tableName, string columnName, string filterValue, int jtStartIndex, int jtPageSize, string jtSorting, bool exact, out int cantidad)
+        public List<T> SelectListJTable<T>(string tableName, List<ENT_JTableFilter> filters, int jtStartIndex, int jtPageSize, string jtSorting, out int cantidad)
         {
-            return new DAL_ListJTable().SelectListJTable<T>(tableName, columnName, filterValue, jtStartIndex, jtPageSize, jtSorting, exact, out cantidad);
+            return new DAL_ListJTable().SelectListJTable<T>(tableName, filters, jtStartIndex, jtPageSize, jtSorting, out cantidad);
         }
     }
 }
